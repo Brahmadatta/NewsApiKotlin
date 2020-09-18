@@ -35,13 +35,13 @@ class NewsApiModel(application: Application) : AndroidViewModel(application) {
     public fun getNewsData()
     {
 
-        try {
             compositeDisposable.add(
                 newsApiService.getNewsAPi().subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(object : DisposableSingleObserver<ApiModel>(){
                         override fun onSuccess(apimodel : ApiModel) {
 
+                            articles.postValue(apimodel.articles)
                             Log.e("apidata",apimodel.articles.toString())
                         }
 
@@ -52,10 +52,6 @@ class NewsApiModel(application: Application) : AndroidViewModel(application) {
 
                     })
             )
-        }catch (e: Exception)
-        {
-            e.printStackTrace()
-        }
 
     }
 

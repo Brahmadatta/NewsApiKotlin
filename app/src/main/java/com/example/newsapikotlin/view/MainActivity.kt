@@ -15,8 +15,11 @@ class MainActivity : AppCompatActivity() {
 
 
     private val articleObserver = Observer<List<Articles>>{
-        list : List<Articles>? -> {
-        Log.e("list",list.toString())
+        list -> list?.let {
+        for (a in list.indices)
+        {
+            Log.e("data",list[a].title.toString())
+        }
     }
 
     }
