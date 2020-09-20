@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface NewsApi {
 
-    @GET("http://newsapi.org/v2/everything?q=bitcoin&from=2020-08-19&sortBy=publishedAt&apiKey=eaa2024dc45f4e7f935a562a894c61b9")
+    @GET("http://newsapi.org/v2/everything?q=bitcoin&from=2020-08-20&sortBy=publishedAt&apiKey=eaa2024dc45f4e7f935a562a894c61b9")
     fun getNewsData() : Single<ApiModel>
 
 }
