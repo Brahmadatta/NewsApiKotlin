@@ -13,7 +13,7 @@ interface NewsApi {
 
 
     @GET("http://newsapi.org/v2/everything")
-    fun getNewsDataa(@Query("bitcoin") bitcoin : String, @Path("from") from : String,
-                     @Path("sortBy") sort : String, @Query("apiKey") apikey : String) : Single<ApiModel>
+    fun getNewsDataa(@Query("q") bitcoin : String, @Query("from") from : String,
+                     @Query("sortBy") sort : String, @Query("apiKey") apikey : String) : Single<ApiModel>
 
 }
