@@ -37,8 +37,11 @@
                 android:layout_height="0dp"
                 android:padding="5dp"
                 android:textSize="20sp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_gravity="center"
+                android:gravity="center|start"
                 android:layout_weight="1.5"
-                android:fontFamily="monospace"
                 android:textColor="@color/black"
                 android:text="@string/app_name" />
 
@@ -57,6 +60,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="8"
+                    android:ellipsize="end"
+                    android:maxLines="4"
                     android:id="@+id/news_description"
                     tools:ignore="NestedWeights" />
 
