@@ -36,7 +36,7 @@ class NewsApiModel(application: Application) : AndroidViewModel(application) {
     {
 
             compositeDisposable.add(
-                newsApiService.getNewsAPi().subscribeOn(Schedulers.newThread())
+                newsApiService.getNewsApiData().subscribeOn(Schedulers.newThread())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(object : DisposableSingleObserver<ApiModel>(){
                         override fun onSuccess(apimodel : ApiModel) {

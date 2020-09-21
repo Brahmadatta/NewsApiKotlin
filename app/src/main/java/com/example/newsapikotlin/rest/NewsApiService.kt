@@ -5,10 +5,16 @@ import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
 class NewsApiService {
 
-    private val BASE_URL = "http://newsapi.org/";
+    private val BASE_URL = "http://newsapi.org/"
+
+    private val APIKEY = "eaa2024dc45f4e7f935a562a894c61b9"
+
+    val currentDate: String = java.text.SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+
 
     val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -21,5 +27,10 @@ class NewsApiService {
     fun getNewsAPi() : Single<ApiModel>
     {
         return api.getNewsData()
+    }
+
+    fun getNewsApiData() : Single<ApiModel>
+    {
+        return api.getNewsDataa("bitcoin",currentDate,"publishedAt",APIKEY)
     }
 }
