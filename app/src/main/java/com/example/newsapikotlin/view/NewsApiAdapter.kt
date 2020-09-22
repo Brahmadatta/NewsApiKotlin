@@ -45,6 +45,14 @@ public class NewsApiAdapter(private val newsApiList: ArrayList<Articles>) : Recy
             shareIntent.putExtra(Intent.EXTRA_TEXT, newsApiList[position].url);
             startActivity(holder.itemView.context,Intent.createChooser(shareIntent,newsApiList[position].url),null)
         }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context,NewsDescriptionActivity::class.java)
+            intent.putExtra("news_api_image",newsApiList[position].urlToImage.toString())
+            intent.putExtra("news_description",newsApiList[position].description)
+            intent.putExtra("news_title",newsApiList[position].title)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -52,7 +60,6 @@ public class NewsApiAdapter(private val newsApiList: ArrayList<Articles>) : Recy
     }
 
     public class NewsApiViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
 
     }
 }
