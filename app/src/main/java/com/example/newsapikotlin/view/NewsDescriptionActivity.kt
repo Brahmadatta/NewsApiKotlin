@@ -22,14 +22,19 @@ class NewsDescriptionActivity : AppCompatActivity() {
         if (intent.extras != null)
         {
 
-            //news_api_text.text = intent?.extras?.getString("news_title")
+            val news_title = intent?.extras?.getString("news_title")
             val image = intent?.extras?.getString("news_api_image")
             Glide.with(collapsingToolbar_news_image).load(image.toString()).into(collapsingToolbar_news_image)
             news_description_text.text = intent?.extras?.getString("news_description")
-            supportActionBar?.title = intent?.extras?.getString("news_title")
-            news_api_text.gravity = Gravity.START
+            toolbar_news.title = news_title.toString()
+            toolbar_news.setTitleTextColor(getColor(R.color.white))
+            setSupportActionBar(toolbar_news)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setHomeButtonEnabled(true)
         }
 
     }
+
+
 
 }
